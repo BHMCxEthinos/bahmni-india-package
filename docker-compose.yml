@@ -801,15 +801,28 @@ services:
     environment:
       SUPERSET_SECRET_KEY: change-me
       SQLALCHEMY_DATABASE_URI: postgresql+psycopg2://superset:superset@superset-db:5432/superset
-      SUPERSET_CONFIG_PATH: /app/pythonpath/superset_config.py
       SUPERSET_ENABLE_PROXY_FIX: True
       PREFERRED_URL_SCHEME: https
       #SUPERSET_WEBSERVER_BASEURL: https://medapp-test.bharathmedicare.com/superset
+      SUPERSET_CONFIG_PATH: /app/superset_2fa/superset_config.py
+      TWO_FACTOR_AUTH_ENABLED: "true"
+      SUPERSET_OTP_BYPASS_USERS: "admin,superman,sagar"
+      OTP_SMS_TEMPLATE: "Your OTP {otp} to login into Bharath Medicare app."
+      NETTY_DLT_TEMPLATE_ID: "1077330390098083445"
+      NETTY_API_URL: http://retailsms.nettyfish.com/api/mt/SendSMS
+      NETTY_USER: ${NETTY_USER}
+      NETTY_PASSWORD: ${NETTY_PASSWORD}
+      NETTY_SENDERID: BHMCIN
+      NETTY_CHANNEL: Trans
+      NETTY_ROUTE: "28"
+      NETTY_PEID: ${NETTY_PEID}
+
 
     depends_on:
       - superset-db
     volumes:
       - superset_home:/app/superset_home
+      - ./superset-2fa/superset_config.py:/app/superset_2fa/superset_config.py:ro
       - ./superset/superset_config.py:/app/pythonpath/superset_config.py
       #- ./superset_config.py:/app/pythonpath/superset_config.py
 
