@@ -805,8 +805,8 @@ services:
       PREFERRED_URL_SCHEME: https
       #SUPERSET_WEBSERVER_BASEURL: https://medapp-test.bharathmedicare.com/superset
       SUPERSET_CONFIG_PATH: /app/superset_2fa/superset_config.py
-      TWO_FACTOR_AUTH_ENABLED: "true"
-      SUPERSET_OTP_BYPASS_USERS: "admin,superman,sagar"
+      TWO_FACTOR_AUTH_ENABLED: ${SUPERSET_TWO_FACTOR_AUTH_ENABLED:-false}
+      SUPERSET_OTP_BYPASS_USERS: ${SUPERSET_OTP_BYPASS_USERS:-admin}
       OTP_SMS_TEMPLATE: "Your OTP {otp} to login into Bharath Medicare app."
       NETTY_DLT_TEMPLATE_ID: "1077330390098083445"
       NETTY_API_URL: http://retailsms.nettyfish.com/api/mt/SendSMS
