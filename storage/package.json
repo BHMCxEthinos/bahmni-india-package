@@ -1,0 +1,16 @@
+{
+  "name": "docker-api-example",
+  "version": "1.0.0",
+  "description": "Node.js API for interacting with Docker containers",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "dockerode": "^3.3.5",
+    "ejs": "^3.1.9"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Aditya",
+  "license": "ISC"
+}

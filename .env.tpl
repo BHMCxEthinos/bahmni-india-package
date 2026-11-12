@@ -1,0 +1,212 @@
+# Docker Compose Variables
+COMPOSE_PROFILES=emr
+CERTIFICATE_PATH=/etc/letsencrypt/live/clinic
+# Bahmni Config Environment Variables
+CONFIG_IMAGE_NAME=bahmniindiadistro/clinic-config
+CONFIG_IMAGE_TAG=latest
+CONFIG_VOLUME=bahmni-config
+
+# Host-Port Mappings, credentials for Atomfeed Sync across various services. Defaults to services running in docker.
+OPENMRS_HOST=openmrs
+OPENMRS_PORT=8080
+OPENMRS_URL=http://${OPENMRS_HOST:?}:${OPENMRS_PORT:?}/openmrs
+OPENMRS_USERNAME="superman"
+OPENMRS_PASSWORD="Admin123"
+OPENMRS_ATOMFEED_USER=admin
+OPENMRS_ATOMFEED_PASSWORD=Admin123
+OPENELIS_HOST=openelis
+OPENELIS_PORT=8052
+OPENELIS_ATOMFEED_USER=atomfeed
+OPENELIS_ATOMFEED_PASSWORD=AdminadMIN*
+
+# OpenMRS Environment Variables
+OPENMRS_IMAGE_TAG=latest
+# OPENMRS_DB_IMAGE_NAME=mysql:5.6
+OPENMRS_DB_IMAGE_NAME=bahmni/openmrs-db:clinic-config-mysql5.6
+OPENMRS_DB_NAME=openmrs
+OPENMRS_DB_HOST=openmrsdb
+OPENMRS_DB_USERNAME=openmrs-user
+OPENMRS_DB_PASSWORD=password
+OPENMRS_DB_CREATE_TABLES='false'
+OPENMRS_DB_AUTO_UPDATE='true'
+OPENMRS_MODULE_WEB_ADMIN='true'
+MYSQL_ROOT_USERNAME=root
+# OMRS_DEV_DEBUG_PORT=
+OMRS_JAVA_SERVER_OPTS=''
+OMRS_JAVA_MEMORY_OPTS=''
+OPENMRS_UPLOAD_FILES_PATH=./openmrs-uploads
+BAHMNI_OPENMRS_MODULES_PATH=
+MYSQL_ROOT_PASSWORD=adminAdmin!123
+OPENMRS_DOCKER_ENV='true'
+OMRS_C3P0_MAX_SIZE=50
+WEIGHT_CONCEPT_UUID=5089AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+HEIGHT_CONCEPT_UUID=5090AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+LUCENE_MATCH_TYPE="START"
+DOCUMENT_MAX_SIZE_MB=7
+
+# Mail Config Properties Environment Variables
+SEND_MAIL=false
+MAIL_TRANSPORT_PROTOCOL=smtps
+MAIL_SMTP_AUTH=true
+MAIL_SMTP_STARTTLS_ENABLE=true
+MAIL_SMTP_SSL_ENABLE=true
+MAIL_DEBUG=false
+MAIL_SMTP_HOST=
+MAIL_SMTP_PORT=
+MAIL_FROM=
+MAIL_USER=
+MAIL_PASSWORD=
+
+#HIP-OMOD Variables
+PHONE_NUMBER=phoneNumber
+
+#Bahmni Reports Environment Variables
+REPORTS_DB_NAME=bahmni_reports
+REPORTS_DB_USERNAME=reports-user
+REPORTS_DB_PASSWORD=password
+REPORTS_IMAGE_TAG=latest
+
+#Odoo DB Environment Variables
+ODOO_DB_USER=odoo
+ODOO_DB_PASSWORD=odoo
+
+#Bahmni Web Environment Variables
+BAHMNI_WEB_IMAGE_TAG=latest
+BAHMNI_APPS_PATH=
+
+#Implementer Interface Environment Variables
+IMPLEMENTER_INTERFACE_IMAGE_TAG=latest
+IMPLEMENTER_INTERFACE_CODE_PATH=
+
+#Bahmni Proxy Environment Variables
+PROXY_IMAGE_TAG=latest
+
+#Postgres Environment Variables
+POSTGRES_IMAGE_TAG=latest
+
+#Rabbitmq Environment Variables
+RABBITMQ_IMAGE_TAG=3
+RABBITMQ_HOST=rabbitmq
+RABBITMQ_USERNAME=guest
+RABBITMQ_PASSWORD=guest
+
+#Otp service Environment Variables
+OTP_SERVICE_IMAGE_TAG=latest
+
+#hiu-ui Environment Variables
+HIU_UI_IMAGE_TAG=latest
+HIU_BACKEND_BASE_URL=https://localhost/hiu-api
+HIU_UI_BASE_NAME=/hiuser
+
+#hiu-db-initializer Environment Variables
+HIU_DB_INITIALIZER_IMAGE_TAG=latest
+
+#hip and hiu Environment Variables
+HIU_ID="Bahmni"
+HIU_NAME="Bahmni"
+HIU_IMAGE_TAG=latest
+HIU_DB_URL=jdbc:postgresql://db:5432/
+HIU_DB_NAME=health_information_user
+HIU_DB_USER=postgres
+HIU_DB_HOST=db
+HIU_DB_PORT=5432
+HIU_DB_PASSWORD=welcome
+HIU_RABBITMQ_USERNAME=guest
+HIU_RABBITMQ_PASSWORD=guest
+HIU_RABBITMQ_HOST=rabbitmq
+HIU_RABBITMQ_PORT=5672
+HIU_DATA_PUSH_URL="http://hiu:8003/data/notification"
+HIU_DEFAULT_PAGE_SIZE=20
+HIU_MAX_PAGE_SIZE=100
+HIU_LOCAL_STORAGE_PATH=/tmp/
+HIU_DB_CONNECTION_POOL_SIZE=5
+HIU_OFFSET_IN_DAYS=2
+HIU_USING_GATEWAY='true'
+HIU_GATEWAY_REQUEST_TIMEOUT=2000
+HIU_MAX_IN_MEMORY_SIZE=500MB
+HIU_DATA_FLOW_CONSENT_REQUEST_WAIT_TIME=1
+HIU_DATA_FLOW_CONSENT_ARTEFACT_WAIT_TIME=1
+HIU_DATA_FLOW_PART_WAIT_TIME=1440
+TIMEZONE_OFFSET="+05:30"
+
+HIP_URL="http://hip"
+HIP_ID="Bahmni"
+HIP_IMAGE_TAG=latest
+HIP_DB_USER=postgres
+HIP_DB_PASSWORD=welcome
+HIP_OPENMRS_HEALTH_CHECK_DURATION=30000
+HIP_CORS_ALLOWED_ORIGIN="http://localhost"
+HIP_OTP_SERVICE_URL=http://otp
+HIP_DB_NAME=hipservice
+HIP_DB_HOST=db
+HIP_DB_PORT=5432
+OTP_WHITELIST_NUMBERS=""
+
+OTP_DB_NAME=otpservice
+OTP_DB_HOST=db
+OTP_DB_PORT=5432
+OTP_DB_USER=postgres
+OTP_DB_PASSWORD=welcome
+
+HIP_ATOMFEED_DB_NAME=hip_atomfeed_listener
+HIP_ATOMFEED_DB_URL=jdbc:postgresql://db:5432/
+OPENMRS_SESSION_URL=${OPENMRS_URL:?}/ws/rest/v1/session
+OPENMRS_ENCOUNTER_FEED_URL=${OPENMRS_URL:?}/ws/atomfeed/encounter/recent
+HIP_ATOMFEED_IMAGE_TAG=latest
+
+ABDM_GATEWAY_CLIENT_ID="dummy_id"
+ABDM_GATEWAY_CLIENT_SECRET="dummy-secret"
+ABDM_GATEWAY_JWK_URL="https://dev.abdm.gov.in/gateway/v0.5/certs"
+ABDM_GATEWAY_BASE_URL="https://dev.abdm.gov.in/gateway/v0.5"
+ABDM_CONSENT_MANAGEMENT_URL="https://dev.abdm.gov.in/cm"
+ABDM_CONSENT_MANAGEMENT_SUFFIX="sbx"
+HIU_ABDM_CONSENT_MANAGEMENT_SUFFIX="@sbx"
+ABDM_CONSENT_NOTIFICATION_URL="http://localhost:8003/consent/notification"
+ABDM_HFR_AFFINITY_DOMAINS=facilitysbx.abdm.gov.in
+ABDM_IDENTITY_JWK_URL=https://dev.abdm.gov.in/auth/realms/consent-manager/protocol/openid-connect/certs
+ABDM_GATEWAY_URL="https://dev.abdm.gov.in/gateway"
+
+#Patient Documents environmental variables
+PATIENT_DOCUMENTS_TAG=latest
+
+#Appointments environmental variables
+APPOINTMENTS_IMAGE_TAG=latest
+APPOINTMENTS_PATH=
+
+# ABHA-Verification Environment Variables
+ABHA_VERIFICATION_IMAGE_TAG=latest
+
+# Crater Environment Variables
+CRATER_PHP_IMAGE_TAG=latest
+CRATER_NGINX_IMAGE_TAG=latest
+CRATER_APP_URL=http://localhost:444
+CRATER_DB_HOST=craterdb
+CRATER_DB_PORT=3306
+CRATER_DB_DATABASE=crater
+CRATER_DB_USERNAME=crater
+CRATER_DB_PASSWORD="crater"
+CRATER_SANCTUM_STATEFUL_DOMAINS=localhost:444
+CRATER_SESSION_DOMAIN=localhost
+CRATER_AUTO_INSTALL="true"
+CRATER_ADMIN_NAME=Super Man
+CRATER_ADMIN_EMAIL=superman@bahmni.org
+CRATER_ADMIN_PASSWORD=Crater123
+CRATER_COMPANY_NAME=Bahmni
+CRATER_COMPANY_SLUG=Bahmni
+CRATER_COUNTRY_ID=101
+CRATER_APP_DEBUG=false
+#please find different currency codes here https://github.com/Bahmni/crater/blob/bahmni-master/database/seeders/CurrenciesTableSeeder.php
+CRATER_DEFAULT_CURRENCY=INR
+
+#Crater-Atomfeed Environment variables
+CRATER_USERNAME=superman@bahmni.org
+CRATER_PASSWORD=Crater123
+CRATER_ATOMFEED_DB_USERNAME=crater_atomfeed_user
+CRATER_ATOMFEED_DB_PASSWORD=passw0rd
+CRATER_ATOMFEED_DB_ROOT_PASSWORD=root@123
+CRATER_ATOMFEED_DB_HOST=crater-atomfeed-db
+CRATER_ATOMFEED_DB_PORT=3306
+CRATER_ATOMFEED_DB_NAME=crater_atomfeed
+CRATER_URL=http://crater-nginx
+
+RESTART_POLICY=always
