@@ -137,6 +137,18 @@ services:
       HEIGHT_CONCEPT_UUID: ${HEIGHT_CONCEPT_UUID}
       LUCENE_MATCH_TYPE: ${LUCENE_MATCH_TYPE}
       DOCUMENT_MAX_SIZE_MB: ${DOCUMENT_MAX_SIZE_MB}
+      #Two-factor login (SMS OTP via Netty). Off by default, enable per server via .env
+      TWO_FACTOR_AUTH_ENABLED: ${OPENMRS_TWO_FACTOR_AUTH_ENABLED:-false}
+      OTP_SMS_TEMPLATE: "Your OTP {otp} to login into Bharath Medicare app."
+      OTP_DEBUG_LOG: "false"
+      NETTY_API_URL: http://retailsms.nettyfish.com/api/mt/SendSMS
+      NETTY_USER: ${NETTY_USER}
+      NETTY_PASSWORD: ${NETTY_PASSWORD}
+      NETTY_SENDERID: BHMCIN
+      NETTY_ROUTE: "28"
+      NETTY_CHANNEL: Trans
+      NETTY_PEID: ${NETTY_PEID}
+      NETTY_DLT_TEMPLATE_ID: "1077330390098083445"
     # ports:
       # - ${OMRS_DEV_DEBUG_PORT}:${OMRS_DEV_DEBUG_PORT}
     volumes:
