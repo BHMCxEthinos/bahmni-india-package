@@ -149,6 +149,17 @@ services:
       NETTY_CHANNEL: Trans
       NETTY_PEID: ${NETTY_PEID}
       NETTY_DLT_TEMPLATE_ID: "1077330390098083445"
+      #Patient CSAT / NPS survey SMS (Odoo link via Netty). Off by default, enable per server via .env
+      SURVEY_CSAT_ENABLED: ${SURVEY_CSAT_ENABLED:-false}
+      SURVEY_NPS_ENABLED: ${SURVEY_NPS_ENABLED:-false}
+      SURVEY_CSAT_ODOO_ID: ${SURVEY_CSAT_ODOO_ID:-}
+      SURVEY_NPS_ODOO_ID: ${SURVEY_NPS_ODOO_ID:-}
+      ODOO_URL: "http://odoo:8069"
+      ODOO_DB: ${ODOO_DB_NAME}
+      ODOO_USER: ${ODOO_ATOMFEED_USER}
+      ODOO_PASSWORD: ${ODOO_ATOMFEED_PASSWORD}
+      SURVEY_CSAT_SMS_TEMPLATE: "Thank you for visiting Bharath Medicare. Share your feedback: {link}"
+      SURVEY_CSAT_DLT_TEMPLATE_ID: "1077068110024592756"
     # ports:
       # - ${OMRS_DEV_DEBUG_PORT}:${OMRS_DEV_DEBUG_PORT}
     volumes:
