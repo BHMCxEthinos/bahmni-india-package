@@ -664,6 +664,8 @@ services:
   odoo:
     profiles: ["odoo","emr"]
     image: '${ODOO_IMAGE_NAME:?}:${ODOO_IMAGE_TAG:?[ERROR]}'
+    env_file:
+      - .env
     restart: ${RESTART_POLICY}
     ports:
       - '8069:8069'
